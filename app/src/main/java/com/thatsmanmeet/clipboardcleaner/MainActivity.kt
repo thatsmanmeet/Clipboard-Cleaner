@@ -91,7 +91,7 @@ class MainActivity : ComponentActivity() {
                             val clipData = ClipData.newPlainText("","")
                             clipService.setPrimaryClip(clipData)
                             Toast.makeText(context,
-                                clipService.primaryClip?.getItemAt(0)?.text.toString(),Toast.LENGTH_SHORT).show()
+                                "Clipboard Cleaned",Toast.LENGTH_SHORT).show()
                         }
                     }, modifier = Modifier.padding(5.dp)) {
                         Text(text = "Clean Clipboard")
@@ -106,9 +106,10 @@ class MainActivity : ComponentActivity() {
                         Text(
                             text = "Made with ❤️ by Manmeet",
                             textAlign = TextAlign.Center,
-                            fontSize = 14.sp,
+                            fontSize = 16.sp,
                             modifier = Modifier.fillMaxWidth()
-                                .padding(10.dp)
+                                .padding(10.dp),
+                            fontWeight = FontWeight.Light
                         )
                     }
             }
