@@ -85,7 +85,7 @@ class MainActivity : ComponentActivity() {
                         if(Build.VERSION.SDK_INT > Build.VERSION_CODES.P){
                             clipService.clearPrimaryClip()
                             Toast.makeText(context,
-                                clipService.primaryClip?.getItemAt(0)?.text.toString(),Toast.LENGTH_SHORT).show()
+                                "Clipboard Cleaned",Toast.LENGTH_SHORT).show()
                         }else{
                             val clipData = ClipData.newPlainText("","")
                             clipService.setPrimaryClip(clipData)
