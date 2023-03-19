@@ -1,5 +1,8 @@
 # Clipboard Cleaner
-An android app for showing and cleaning clipboard.
+
+An android app for showing and cleaning clipboard. This app have a simple interface with only two
+buttons, `Show Clipboard` and `Clean Clipboard`. Both shows a small message (Toast) at the bottom with
+one showing the last copied text in clipboard while other clears the clipboard completely.
 
 ## 🛠️ Technologies Used 
 - Kotlin
