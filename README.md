@@ -15,7 +15,10 @@ On some android devices the clipboard cleaning might not work as some vendors im
 <img src="./screenshots/screenshot2.png" height="400px" width="200px">
 
 ## ⬇ Download
-To download the app go to releases page and download the latest `app-release.apk` file from the latest release tag.
+
+<a href="https://apt.izzysoft.de/fdroid/index/apk/com.thatsmanmeet.clipboardcleaner" target="_blank"><img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" width="180px" height="80px"/></a>
+
+Or Go To download the app go to releases page and download the latest `app-release.apk` file from the latest release tag.
 
 ## 🤝🏻 Contribute
 ```markdown
