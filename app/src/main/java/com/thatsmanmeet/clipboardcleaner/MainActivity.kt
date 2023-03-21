@@ -98,7 +98,11 @@ class MainActivity : ComponentActivity() {
                         horizontalArrangement = Arrangement.Center) {
                         Button(onClick = {
                             val currentClip = clipService.primaryClip?.getItemAt(0)?.text.toString()
-                            Toast.makeText(context, currentClip,Toast.LENGTH_LONG).show()
+                            if(currentClip == "null"){
+                                Toast.makeText(context, "Clipboard is empty",Toast.LENGTH_LONG).show()
+                            }else{
+                                Toast.makeText(context, currentClip,Toast.LENGTH_LONG).show()
+                            }
                         },
                             modifier = Modifier.padding(5.dp),
                             colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF009688), contentColor = Color.White)) {
@@ -123,6 +127,21 @@ class MainActivity : ComponentActivity() {
                     Spacer(modifier = Modifier
                         .fillMaxWidth()
                         .fillMaxHeight(0.3f))
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(10.dp),
+                        backgroundColor = Color(0xFF4CAF50),
+                        elevation = 5.dp
+                    ) {
+                        Text(
+                            modifier = Modifier.padding(18.dp),
+                            color = Color.White,
+                            textAlign = TextAlign.Start,
+                            style = MaterialTheme.typography.subtitle1,
+                            text = "Hey, Now you can view and clean your clipboard using tiles from quick panel.\nHappy Cleaning!"
+                        )
+                    }
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
