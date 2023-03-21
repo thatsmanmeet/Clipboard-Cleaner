@@ -1,3 +1,4 @@
+![Banner](/images/banner.png)
 # Clipboard Cleaner
 
 An android app for showing and cleaning clipboard. This app have a simple interface with only two
@@ -27,6 +28,10 @@ Or Go To download the app go to releases page and download the latest `app-relea
  - Make changes and commit  
  - create pull request
 ```
+
+## 👨🏼‍⚖️ License
+
+This app uses GPL V3.0 License.
 
 ## ＠ Credits
 
