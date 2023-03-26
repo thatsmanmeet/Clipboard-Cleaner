@@ -25,9 +25,10 @@ class ShowClipboardTileService : TileService() {
     override fun onClick() {
         super.onClick()
         try {
-            val intent = Intent(this, ShowIntentActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivityAndCollapse(intent)
+            val intent = Intent(this, ShowIntentActivity::class.java).also {
+                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS
+                startActivityAndCollapse(it)
+            }
         }catch (e:Exception){
             Log.d("Exception", "onClick: $e ")
         }

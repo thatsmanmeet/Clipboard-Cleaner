@@ -16,6 +16,7 @@
             android:name=".ShowIntentActivity"
             android:exported="false"
             android:theme="@style/Transparent"
+            android:taskAffinity="com.thatsmanmeet.ShowIntentActivity"
             />
         <activity
             android:name=".IntentActivity"

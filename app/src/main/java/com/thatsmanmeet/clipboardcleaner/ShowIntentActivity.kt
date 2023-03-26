@@ -5,7 +5,6 @@ import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -16,7 +15,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 class ShowIntentActivity : ComponentActivity() {
@@ -31,12 +29,12 @@ class ShowIntentActivity : ComponentActivity() {
                 modifier = Modifier
                     .fillMaxSize()
                     .blur(10.dp)
-                    .background(Color.Transparent)
                     ){
                 AlertDialog(
                     modifier = Modifier.padding(5.dp),
                     onDismissRequest = {
                         state.value = false
+                        this@ShowIntentActivity.onDestroy()
                         finish()
                     },
                 title = { Text(text = "Clipboard Data")},
@@ -51,9 +49,9 @@ class ShowIntentActivity : ComponentActivity() {
                 },
                 confirmButton = {
                     Button(
-                        modifier = Modifier.background(Color.Transparent),
                         onClick = {
                         state.value = false
+                        this@ShowIntentActivity.onDestroy()
                         finish()
                     }) {
                         Text(text = "OK")
