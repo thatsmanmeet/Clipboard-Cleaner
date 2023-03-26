@@ -1,11 +1,15 @@
 package com.thatsmanmeet.clipboardcleaner.services
 
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Intent
 import android.graphics.drawable.Icon
+import android.os.Build
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import android.util.Log
+import android.widget.Toast
 import com.thatsmanmeet.clipboardcleaner.IntentActivity
 import com.thatsmanmeet.clipboardcleaner.R
 
@@ -33,6 +37,4 @@ class CleanClipboardTilesService : TileService() {
             Log.d("Exception", "onClick: $e ")
         }
     }
-
-
 }

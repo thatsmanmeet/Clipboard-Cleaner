@@ -3,7 +3,6 @@ package com.thatsmanmeet.clipboardcleaner
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -24,7 +23,6 @@ class ShowIntentActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            this.actionBar!!.hide()
             val state = remember {
                 mutableStateOf(false)
             }
@@ -45,8 +43,6 @@ class ShowIntentActivity : ComponentActivity() {
                 text = {
                    val clipService = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                     val currentClip = clipService.primaryClip?.getItemAt(0)?.text.toString()
-                    val secClip = clipService.hasPrimaryClip()
-                    Log.d("TAG", "onCreate: $secClip ")
                     if(currentClip == "null"){
                         Text(text = "Clipboard is Empty")
                     }else{

@@ -126,11 +126,11 @@ class MainActivity : ComponentActivity() {
                     }
                     Spacer(modifier = Modifier
                         .fillMaxWidth()
-                        .fillMaxHeight(0.3f))
+                        .fillMaxHeight(0.1f))
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(10.dp),
+                            .padding(12.dp),
                         backgroundColor = Color(0xFF4CAF50),
                         elevation = 5.dp
                     ) {
