@@ -17,6 +17,7 @@ On some android devices the clipboard cleaning might not work as some vendors im
 
 ## ⬇ Download
 
+<a href='https://play.google.com/store/apps/details?id=com.thatsmanmeet.clipboardcleaner&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' width="180px" height="80px"/></a>
 <a href="https://apt.izzysoft.de/fdroid/index/apk/com.thatsmanmeet.clipboardcleaner" target="_blank"><img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" width="180px" height="80px"/></a>
 
 Or Go To download the app go to releases page and download the latest `app-release.apk` file from the latest release tag.
