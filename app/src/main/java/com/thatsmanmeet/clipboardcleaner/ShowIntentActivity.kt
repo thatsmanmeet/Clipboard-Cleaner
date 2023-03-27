@@ -1,16 +1,15 @@
 package com.thatsmanmeet.clipboardcleaner
 
 import android.content.ClipboardManager
-import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.AlertDialog
-import androidx.compose.material.Button
-import androidx.compose.material.Text
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -39,7 +38,7 @@ class ShowIntentActivity : ComponentActivity() {
                     },
                 title = { Text(text = "Clipboard Data")},
                 text = {
-                   val clipService = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                   val clipService = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
                     val currentClip = clipService.primaryClip?.getItemAt(0)?.text.toString()
                     if(currentClip == "null"){
                         Text(text = "Clipboard is Empty")

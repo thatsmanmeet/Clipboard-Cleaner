@@ -11,9 +11,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -40,6 +42,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @RequiresApi(Build.VERSION_CODES.P)
 @Composable fun MyApp(){
     val context = LocalContext.current
@@ -52,15 +55,17 @@ class MainActivity : ComponentActivity() {
             modifier = Modifier
                 .fillMaxWidth()
                 .fillMaxHeight(1f),
-            color = MaterialTheme.colors.background
+            color = MaterialTheme.colorScheme.background
         ) {
             Scaffold(
                 modifier = Modifier.fillMaxSize(),
                 topBar = {
                     TopAppBar(
                         title = { Text(text = "Clipboard Cleaner")},
-                        backgroundColor = Color(0xFF018786),
-                        contentColor = Color.White
+                        colors = TopAppBarDefaults.smallTopAppBarColors(
+                            containerColor = Color(0xFF018786),
+                            titleContentColor = Color.White
+                        )
                     )
                 }
                 ) {
@@ -105,7 +110,7 @@ class MainActivity : ComponentActivity() {
                             }
                         },
                             modifier = Modifier.padding(5.dp),
-                            colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF009688), contentColor = Color.White)) {
+                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF009688), contentColor = Color.White)) {
                             Text(text = "Show Clipboard")
                         }
                         Button(onClick = {
@@ -120,7 +125,7 @@ class MainActivity : ComponentActivity() {
                                     "Clipboard Cleaned",Toast.LENGTH_SHORT).show()
                             }
                         }, modifier = Modifier.padding(5.dp),
-                        colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFFF44336), contentColor = Color.White)) {
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF44336), contentColor = Color.White)) {
                             Text(text = "Clean Clipboard")
                         }
                     }
@@ -131,15 +136,18 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(12.dp),
-                        backgroundColor = Color(0xFF4CAF50),
-                        elevation = 5.dp
+                        colors = CardDefaults.elevatedCardColors(
+                            containerColor = Color(0xFF4CAF50),
+                            contentColor = Color.White
+                        ),
+                        elevation = CardDefaults.cardElevation(5.dp)
                     ) {
                         Text(
                             modifier = Modifier.padding(18.dp),
                             color = Color.White,
                             textAlign = TextAlign.Start,
-                            style = MaterialTheme.typography.subtitle1,
-                            text = "Hey, Now you can view and clean your clipboard using tiles from quick panel.\nHappy Cleaning!"
+                            style = MaterialTheme.typography.bodySmall,
+                            text = "Hey, Now you can view and clean your clipboard using tiles from quick panel. Happy Cleaning!"
                         )
                     }
                     Box(
@@ -150,14 +158,14 @@ class MainActivity : ComponentActivity() {
                         Text(
                             text = "Made with ❤️ by Manmeet",
                             textAlign = TextAlign.Center,
-                            fontSize = 16.sp,
+                            fontSize = 13.sp,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(10.dp)
                                 .clickable {
                                     uriHandler.openUri("https://github.com/thatsmanmeet")
                                 },
-                            fontWeight = FontWeight.Light
+                            fontWeight = FontWeight.SemiBold
                         )
                     }
                 }
