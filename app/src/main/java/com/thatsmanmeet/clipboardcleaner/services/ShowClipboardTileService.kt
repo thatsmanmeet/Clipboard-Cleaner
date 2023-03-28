@@ -2,6 +2,7 @@ package com.thatsmanmeet.clipboardcleaner.services
 
 import android.content.Intent
 import android.graphics.drawable.Icon
+import android.os.IBinder
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import android.util.Log
@@ -10,13 +11,17 @@ import com.thatsmanmeet.clipboardcleaner.ShowIntentActivity
 
 class ShowClipboardTileService : TileService() {
 
+    override fun onBind(intent: Intent?): IBinder? {
+        return super.onBind(intent)
+    }
+
     // Called when your app can update your tile.
     override fun onStartListening() {
         super.onStartListening()
         val showTitle = qsTile
         showTitle.label = "Show Clipboard"
         showTitle.state = Tile.STATE_INACTIVE
-        showTitle.icon = Icon.createWithResource(applicationContext,R.drawable.ic_show)
+        showTitle.icon = Icon.createWithResource(this@ShowClipboardTileService,R.drawable.ic_show)
         showTitle.updateTile()
 
     }

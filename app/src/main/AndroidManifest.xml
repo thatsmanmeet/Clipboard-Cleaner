@@ -25,9 +25,10 @@
 
         <service
             android:name=".services.CleanClipboardTilesService"
-            android:exported="true"
+            android:exported="false"
             android:icon="@drawable/ic_clean"
             android:label="Clean Clipboard"
+            android:enabled="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
@@ -35,9 +36,10 @@
         </service>
         <service
             android:name=".services.ShowClipboardTileService"
-            android:exported="true"
+            android:exported="false"
             android:icon="@drawable/ic_show"
             android:label="Show Clipboard"
+            android:enabled="true"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
