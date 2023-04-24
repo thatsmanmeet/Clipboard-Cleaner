@@ -25,7 +25,7 @@
 
         <service
             android:name=".services.CleanClipboardTilesService"
-            android:exported="false"
+            android:exported="true"
             android:icon="@drawable/ic_clean"
             android:label="Clean Clipboard"
             android:enabled="true"
@@ -36,7 +36,7 @@
         </service>
         <service
             android:name=".services.ShowClipboardTileService"
-            android:exported="false"
+            android:exported="true"
             android:icon="@drawable/ic_show"
             android:label="Show Clipboard"
             android:enabled="true"
@@ -55,5 +55,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

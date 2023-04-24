@@ -7,22 +7,15 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.ui.platform.LocalContext
 
 class IntentActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-            if(Build.VERSION.SDK_INT > Build.VERSION_CODES.P){
-                clipboard.clearPrimaryClip()
-                Toast.makeText(this,
-                    "Clipboard Cleaned", Toast.LENGTH_SHORT).show()
-            }else{
-                val clipData = ClipData.newPlainText("","")
-                clipboard.setPrimaryClip(clipData)
-                Toast.makeText(this,
-                    "Clipboard Cleaned", Toast.LENGTH_SHORT).show()
-            }
+            val context = LocalContext.current
+            val viewModel = MainViewModel(context = context)
+            viewModel.cleanClipboard(context = context)
             this.onDestroy()
             finish()
         }
