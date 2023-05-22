@@ -3,6 +3,8 @@ package com.thatsmanmeet.clipboardcleaner
 
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,6 +13,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -37,13 +41,14 @@ import com.thatsmanmeet.clipboardcleaner.ui.theme.ClipboardCleanerTheme
 fun MyApp(modifier: Modifier = Modifier){
     val context = LocalContext.current
     val mainViewModel = MainViewModel(context = context)
+    val scrollState = rememberScrollState()
     ClipboardCleanerTheme {
         Scaffold(
             modifier = modifier.fillMaxSize(),
             topBar = {
                 TopAppBar(
                     title = { Text(text = "Clipboard Cleaner")},
-                    colors = TopAppBarDefaults.smallTopAppBarColors(
+                    colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.primary,
                         titleContentColor = MaterialTheme.colorScheme.onPrimary
                     )
@@ -54,11 +59,12 @@ fun MyApp(modifier: Modifier = Modifier){
                 modifier
                     .padding(it)
                     .padding(16.dp)
-                    .fillMaxSize(),
+                    .fillMaxSize()
+                    .scrollable(scrollState, orientation = Orientation.Vertical),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Spacer(modifier = modifier.height(25.dp))
-                Image(painter = painterResource(id = R.drawable.brush), contentDescription = null)
+                Image(painter = painterResource(id = R.drawable.brush), contentDescription = null,modifier = modifier.size(135.dp))
                 Spacer(modifier = modifier.height(25.dp))
                 Text(text = "Clipboard Cleaner", fontSize = 30.sp)
                 Spacer(modifier = modifier.height(8.dp))
@@ -111,6 +117,14 @@ fun MyApp(modifier: Modifier = Modifier){
                         textAlign = TextAlign.Center
                     )
                 }
+                Column(
+                    modifier = modifier.weight(1f),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Bottom
+                ){
+                    Text(text = "Made with ❤️ by Manmeet")
+                }
+
             }
         }
     }

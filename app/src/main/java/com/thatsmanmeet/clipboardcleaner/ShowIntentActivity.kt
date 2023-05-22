@@ -1,5 +1,7 @@
 package com.thatsmanmeet.clipboardcleaner
 
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -22,7 +24,7 @@ class ShowIntentActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val context = LocalContext.current
-            val mainViewModel = MainViewModel(context = context)
+            val clipService : ClipboardManager = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             ClipboardCleanerTheme {
                 val state = remember {
                     mutableStateOf(false)
@@ -42,8 +44,8 @@ class ShowIntentActivity : ComponentActivity() {
                         },
                         title = { Text(text = "Clipboard Data") },
                         text = {
-                            val clipboardData = mainViewModel.returnClipboardData(context)
-                            Text(text = clipboardData)
+                            val clipboardData = clipService.primaryClip?.getItemAt(0)?.text.toString()
+                            Text(text = if(clipboardData == "null") "Clipboard is empty." else clipboardData)
                         },
                         confirmButton = {
                             Button(
