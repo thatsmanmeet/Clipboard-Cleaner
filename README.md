@@ -10,7 +10,8 @@ one showing the last copied text in clipboard while other clears the clipboard c
 - Jetpack Compose
 
 ## ⚠️ Note
-On some android devices the clipboard cleaning might not work as some vendors implement their own method of managing clipboards.
+- On some android devices the clipboard cleaning might not work as some vendors implement their own method of managing clipboards.
+- Also if you're using a keyboard app with clipboard manager turned on (e.g. GBoard with it's own clipboard) then this app will not be able to clean that history as it belongs to the keyboard app itself and it have to be cleared manually by the user or you can disable the keyboard's own implementation of clipboard manager.
 
 ## 🌠 Screenshot
 <img src="./screenshots/screenshot2.png" height="400px" width="200px">
