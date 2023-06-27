@@ -3,6 +3,7 @@ package com.thatsmanmeet.clipboardcleaner
 
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
@@ -49,14 +50,15 @@ fun MyApp(modifier: Modifier = Modifier){
                 TopAppBar(
                     title = { Text(text = "Clipboard Cleaner")},
                     colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        titleContentColor = MaterialTheme.colorScheme.onPrimary
+                        containerColor = Color(0xFF4CAF50),
+                        titleContentColor = Color.White
                     )
                 )
             }
         ) {
             Column(
                 modifier
+                    .background(MaterialTheme.colorScheme.surface)
                     .padding(it)
                     .padding(16.dp)
                     .fillMaxSize()
@@ -116,6 +118,25 @@ fun MyApp(modifier: Modifier = Modifier){
                         fontSize = 14.sp,
                         textAlign = TextAlign.Center
                     )
+                    Spacer(modifier = modifier.height(10.dp))
+                }
+                Card(
+                    modifier = modifier
+                        .fillMaxWidth()
+                        .padding(10.dp),
+                    elevation = CardDefaults.cardElevation(3.dp),
+                    colors = CardDefaults.cardColors(
+                        containerColor = Color(0xFFDB4343),
+                        contentColor = Color.White
+                    )
+                ) {
+                    Text(
+                        text = "Please Keep in mind that this app cannot clean the inbuilt clipboard of various keyboard apps.",
+                        modifier = modifier.padding(10.dp),
+                        fontSize = 14.sp,
+                        textAlign = TextAlign.Center
+                    )
+                    Spacer(modifier = modifier.height(10.dp))
                 }
                 Column(
                     modifier = modifier.weight(1f),
