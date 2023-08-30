@@ -3,6 +3,7 @@ package com.thatsmanmeet.clipboardcleaner
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
@@ -35,4 +36,12 @@ class MainViewModel(context:Context) : ViewModel() {
             Toast.makeText(context, "Clipboard Cleaned", Toast.LENGTH_SHORT).show()
         }
     }
+
+    fun showIntentActivity(context:Context){
+        Intent(context, ShowIntentActivity::class.java).also {
+            it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS
+            context.startActivity(it)
+        }
+    }
+
 }
