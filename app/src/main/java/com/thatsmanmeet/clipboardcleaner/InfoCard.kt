@@ -1,5 +1,6 @@
-package com.thatsmanmeet
+package com.thatsmanmeet.clipboardcleaner
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -22,12 +23,16 @@ import androidx.compose.ui.unit.sp
 fun InfoCard(
     modifier:Modifier = Modifier,
     text:String,
-    backgroundColor:Color
+    backgroundColor:Color,
+    onClick : () -> Unit
 ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
-            .padding(10.dp),
+            .padding(10.dp)
+            .clickable {
+                onClick()
+            },
         elevation = CardDefaults.cardElevation(3.dp),
         colors = CardDefaults.cardColors(
             containerColor = backgroundColor,
@@ -37,7 +42,7 @@ fun InfoCard(
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
-            modifier = modifier.fillMaxWidth()
+            modifier = modifier.padding(3.dp).fillMaxWidth()
         ) {
             Text(
                 text = text,

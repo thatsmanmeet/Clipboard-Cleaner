@@ -2,11 +2,10 @@ package com.thatsmanmeet.clipboardcleaner
 
 
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.scrollable
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -40,7 +39,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.thatsmanmeet.InfoCard
 import com.thatsmanmeet.clipboardcleaner.ui.theme.ClipboardCleanerTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -130,12 +128,18 @@ fun MyApp(modifier: Modifier = Modifier){
                 InfoCard(
                     text = "Hey! Now you can see or clean your clipboard from quick panels. Happy Cleaning!",
                     backgroundColor = Color(0xFF4CAF50)
-                )
+                ){}
                 InfoCard(
                     text = "Please Keep in mind that this app cannot clean the inbuilt clipboard of various keyboard apps.",
                     backgroundColor = Color(0xFFDB4343)
-                )
-                
+                ){}
+                InfoCard(
+                    text = "Clipboard Cleaner is open source. Click on this card to visit github and see the code. Oh and don't forget to give a ⭐️ ;)",
+                    backgroundColor = Color(0xFF3F51B5)
+                ) {
+                    val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/thatsmanmeet/clipboard-cleaner"))
+                    context.startActivity(browserIntent)
+                }
             }
         }
     }
