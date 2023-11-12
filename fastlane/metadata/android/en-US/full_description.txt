@@ -1,0 +1,7 @@
+Clipboard Cleaner android app for showing and cleaning clipboard. This app have a simple interface with only two buttons, Show Clipboard and Clean Clipboard. Both shows a small message (Toast) at the bottom with one showing the last copied text in clipboard while other clears the clipboard completely.
+
+<p>Note</p>
+<ul>
+<li>On some android devices the clipboard cleaning might not work as some vendors implement their own method of managing clipboards.</li>
+<li>Also if you're using a keyboard app with clipboard manager turned on (e.g. GBoard with it's own clipboard) then this app will not be able to clean that history as it belongs to the keyboard app itself and it have to be cleared manually by the user or you can disable the keyboard's own implementation of clipboard manager.</li>
+</ul>
